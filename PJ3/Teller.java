@@ -31,6 +31,7 @@ class Teller {
    Teller(int tellerId)
    {
 	// add statements
+       this.tellerID = tellerId;
    }
 
    //--------------------------------
