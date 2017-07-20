@@ -1,171 +1,145 @@
 // DO NOT ADD NEW METHODS OR DATA FIELDS!
 // DO NOT MODIFY ANY METHODS OR DATA FIELDS!
-
 package PJ3;
 
 class Teller {
 
-   // teller id and current customer which is served by this cashier
-   private int tellerID;
-   private Customer customer;
+    // teller id and current customer which is served by this cashier
+    private int tellerID;
+    private Customer customer;
 
-   // start time and end time of current free/busy interval
-   private int startFreeTime;
-   private int endFreeTime;
-   private int startBusyTime;
-   private int endBusyTime;
+    // start time and end time of current free/busy interval
+    private int startFreeTime;
+    private int endFreeTime;
+    private int startBusyTime;
+    private int endBusyTime;
 
-   // for keeping statistical data
-   private int totalFreeTime;
-   private int totalBusyTime;
-   private int totalCustomers;
+    // for keeping statistical data
+    private int totalFreeTime;
+    private int totalBusyTime;
+    private int totalCustomers;
 
-   // Constructor
-   Teller()
-   {
-	this(-1);
-   }
+    // Constructor
+    Teller() {
+        this(-1);
+    }
 
+    // Constructor with teller id
+    Teller(int tellerId) {
+        // add statements
+        this.tellerID = tellerId;
+    }
 
-   // Constructor with teller id
-   Teller(int tellerId)
-   {
-	// add statements
-       this.tellerID = tellerId;
-   }
+    //--------------------------------
+    // accessor methods
+    //--------------------------------
+    int getTellerID() {
+        return tellerID;
+    }
 
-   //--------------------------------
-   // accessor methods
-   //--------------------------------
+    Customer getCustomer() {
+        return customer;
+    }
 
-   int getTellerID () 
-   {
-	return tellerID;
-   }
+    int getEndBusyTime() {
+        return endBusyTime;
+    }
 
-   Customer getCustomer() 
-   {
-	return customer;
-   }
+    //--------------------------------
+    // mutator methods
+    //--------------------------------
+    void setCustomer(Customer newCustomer) {
+        customer = newCustomer;
+    }
 
-   int getEndBusyTime() 
-   {
-	return endBusyTime; 
-   }
+    void setStartFreeTime(int time) {
+        startFreeTime = time;
+    }
 
+    void setStartBusyTime(int time) {
+        startBusyTime = time;
+    }
 
-   //--------------------------------
-   // mutator methods
-   //--------------------------------
+    void setEndFreeTime(int time) {
+        endFreeTime = time;
+    }
 
-   void setCustomer(Customer newCustomer)
-   {
-  	customer = newCustomer;
-   }
+    void setEndBusyTime(int time) {
+        endBusyTime = time;
+    }
 
-   void setStartFreeTime (int time)
-   {
-  	startFreeTime = time;
-   }
+    void updateTotalFreeTime() {
+        //add statements
+    }
 
-   void setStartBusyTime (int time)
-   {
-  	startBusyTime = time;
-   }
- 
-   void setEndFreeTime (int time)
-   {
-  	endFreeTime = time;
-   }
+    void updateTotalBusyTime() {
+        //add statements
+    }
 
-   void setEndBusyTime (int time)
-   {
-  	endBusyTime = time;
-   }
- 
-   void updateTotalFreeTime()
-   {
-	//add statements
-   }
+    void updateTotalCustomers() {
+        //add statements
+    }
 
-   void updateTotalBusyTime()
-   {
-	//add statements
-   }
-
-   void updateTotalCustomers()
-   {
-	//add statements
-   }
-
-
-   //--------------------------------
-   // Teller State Transition methods
-   //--------------------------------
-
-   // From free interval to busy interval
-   void freeToBusy (Customer newCustomer, int currentTime)
-   {
-  	// goal  : start serving newCustomer at currentTime
+    //--------------------------------
+    // Teller State Transition methods
+    //--------------------------------
+    // From free interval to busy interval
+    void freeToBusy(Customer newCustomer, int currentTime) {
+        // goal  : start serving newCustomer at currentTime
         //
-	// steps : set endFreeTime, update TotalFreeTime
-	//         set startBusyTime, endBusyTime, customer
-	//         update totalCustomers
+        // steps : set endFreeTime, update TotalFreeTime
+        //         set startBusyTime, endBusyTime, customer
+        //         update totalCustomers
 
-	//add statements
-   }
+        //add statements
+    }
 
-   // Transition from busy interval to free interval
-   Customer busyToFree ()
-   {
-  	// goal  : end serving customer at endBusyTime
+    // Transition from busy interval to free interval
+    Customer busyToFree() {
+        // goal  : end serving customer at endBusyTime
         //
-	// steps : update TotalBusyTime, set startFreeTime
-  	//         return customer 
+        // steps : update TotalBusyTime, set startFreeTime
+        //         return customer 
 
-	//add statements
-	return null;
-   }
+        //add statements
+        return null;
+    }
 
+    //--------------------------------
+    // Print statistical data   
+    //--------------------------------
+    void printStatistics() {
+        // print teller statistics, see project statement
+        System.out.println("\t\tTeller ID                : " + tellerID);
+        System.out.println("\t\tTotal free time          : " + totalFreeTime);
+        System.out.println("\t\tTotal busy time          : " + totalBusyTime);
+        System.out.println("\t\tTotal # of customers     : " + totalCustomers);
+        if (totalCustomers > 0) {
+            System.out.format("\t\tAverage transaction time : %.2f%n\n", (totalBusyTime * 1.0) / totalCustomers);
+        }
+    }
 
-   //--------------------------------
-   // Print statistical data   
-   //--------------------------------
-   void printStatistics () 
-   {
-  	// print teller statistics, see project statement
-  	System.out.println("\t\tTeller ID                : "+tellerID);
-  	System.out.println("\t\tTotal free time          : "+totalFreeTime);
-  	System.out.println("\t\tTotal busy time          : "+totalBusyTime);
-  	System.out.println("\t\tTotal # of customers     : "+totalCustomers);
-  	if (totalCustomers > 0)
-  	   System.out.format("\t\tAverage transaction time : %.2f%n\n",(totalBusyTime*1.0)/totalCustomers);
-   }
+    public String toString() {
+        return "tellerID=" + tellerID
+                + ":startFreeTime=" + startFreeTime + ":endFreeTime=" + endFreeTime
+                + ":startBusyTime=" + startBusyTime + ":endBusyTime=" + endBusyTime
+                + ":totalFreeTime=" + totalFreeTime + ":totalBusyTime=" + totalBusyTime
+                + ":totalCustomer=" + totalCustomers + ">>customer:" + customer;
+    }
 
-   public String toString()
-   {
-        return "tellerID="+tellerID+
-               ":startFreeTime="+startFreeTime+":endFreeTime="+endFreeTime+
-               ":startBusyTime="+startBusyTime+":endBusyTime="+endBusyTime+
-               ":totalFreeTime="+totalFreeTime+":totalBusyTime="+totalBusyTime+
-               ":totalCustomer="+totalCustomers+">>customer:"+customer;
-   }
-
-   public static void main(String[] args) {
+    public static void main(String[] args) {
         // quick check
-        Customer mycustomer = new Customer(1,5,15);
+        Customer mycustomer = new Customer(1, 5, 15);
         Teller myteller = new Teller(5);
         myteller.setStartFreeTime(0);
         System.out.println(myteller);
         myteller.freeToBusy(mycustomer, 20);
-        System.out.println("\n"+myteller);
+        System.out.println("\n" + myteller);
         myteller.busyToFree();
-        System.out.println("\n"+myteller);
+        System.out.println("\n" + myteller);
         System.out.println("\n\n");
         myteller.printStatistics();
 
-
-   }
+    }
 
 };
-

@@ -1,6 +1,5 @@
 // DO NOT ADD NEW METHODS OR NEW DATA FIELDS!
 // DO NOT MODIFY METHODS OR NEW DATA FIELDS!
-
 package PJ3;
 
 import java.util.*;
@@ -30,247 +29,216 @@ import java.util.*;
 // i.e. use Teller's getEndBusyIntervalTime()
 //
 // The following class define compare() for two tellers :
+class CompareTellers implements Comparator<Teller> {
+    // overide compare() method
 
-class CompareTellers implements Comparator<Teller>{
-	// overide compare() method
- 	public int compare(Teller o1, Teller o2) {
-		return o1.getEndBusyTime() - o2.getEndBusyTime(); 
-	}
+    public int compare(Teller o1, Teller o2) {
+        return o1.getEndBusyTime() - o2.getEndBusyTime();
+    }
 }
 
 class ServiceArea {
-  
-  // Private data fields:
-  
-  // define one priority queue 
-  private PriorityQueue <Teller> busyTellerQ;
 
-  // define two FIFO queues
-  private Queue<Customer> customerQ;
-  private Queue<Teller> freeTellerQ;
+    // Private data fields:
+    // define one priority queue 
+    private PriorityQueue<Teller> busyTellerQ;
 
-  // define customer queue limit
-  private int customerQLimit;
+    // define two FIFO queues
+    private Queue<Customer> customerQ;
+    private Queue<Teller> freeTellerQ;
 
+    // define customer queue limit
+    private int customerQLimit;
 
-  // Constructor 
-  public ServiceArea() 
-  {
-	// add statements
-  }
+    // Constructor 
+    public ServiceArea() {
+        // add statements
+    }
 
-  // Constructor 
-  public ServiceArea(int numTellers, int customerQlimit)
-  {
-	// add additional statements
+    // Constructor 
+    public ServiceArea(int numTellers, int customerQlimit) {
+        // add additional statements
 
-	// use ArrayDeque to construct FIFO queue objects
+        // use ArrayDeque to construct FIFO queue objects
+        // construct PriorityQueue object
+        // overide compare() in Comparator to compare Teller objects
+        busyTellerQ = new PriorityQueue<Teller>(numTellers,
+                new CompareTellers());
 
-	// construct PriorityQueue object
- 	// overide compare() in Comparator to compare Teller objects
-	busyTellerQ= new PriorityQueue<Teller>( numTellers, 
-						new CompareTellers()); 
-
-	// initialize customerQlimit
-
+        // initialize customerQlimit
         // Construct Teller objects and insert into FreeTellerQ
         // assign teller ID from 1, 2,..., numTellers
-  }
+    }
 
-  // -------------------------------------------------
-  // freeTellerQ methods: remove, insert, empty, size
-  // -------------------------------------------------
+    // -------------------------------------------------
+    // freeTellerQ methods: remove, insert, empty, size
+    // -------------------------------------------------
+    public Teller removeFreeTellerQ() {
+        // remove and return a free teller
+        // Add statetments
+        return null;
+    }
 
-  public Teller removeFreeTellerQ()
-  {
-	// remove and return a free teller
-	// Add statetments
-	return null;
-  }
+    public void insertFreeTellerQ(Teller teller) {
+        // insert a free teller
+        // Add statetments
+    }
 
-  public void insertFreeTellerQ(Teller teller)
-  {
-	  // insert a free teller
-	  // Add statetments
-  }
+    public boolean emptyFreeTellerQ() {
+        // is freeTellerQ empty?
+        // Add statetments
+        return false;
+    }
 
-  public boolean emptyFreeTellerQ()
-  {
-	// is freeTellerQ empty?
-	// Add statetments
-	return false;
-  }
+    public int numFreeTellers() {
+        // get number of free tellers
+        // Add statetments
+        return 0;
+    }
 
-  public int numFreeTellers()
-  {
-	// get number of free tellers
-	// Add statetments
-	return 0;
-  }
+    // -------------------------------------------------------
+    // busyTellerQ methods: remove, insert, empty, size, peek
+    // -------------------------------------------------------
+    public Teller removeBusyTellerQ() {
+        // remove and return a busy teller
+        // Add statetments
+        return null;
+    }
 
-  // -------------------------------------------------------
-  // busyTellerQ methods: remove, insert, empty, size, peek
-  // -------------------------------------------------------
+    public void insertBusyTellerQ(Teller teller) {
+        // insert a busy teller
+        // Add statetments
+    }
 
-  public Teller removeBusyTellerQ() 
-  {
-	// remove and return a busy teller
-	// Add statetments
-	return null;
-  }
+    public boolean emptyBusyTellerQ() {
+        // is busyTellerQ empty?
+        return busyTellerQ.isEmpty();
+    }
 
-  public void insertBusyTellerQ(Teller teller)
-  {
-	// insert a busy teller
-	// Add statetments
-  }
+    public int numBusyTellers() {
+        // get number of busy tellers
+        // Add statetments
+        return 0;
+    }
 
-  public boolean emptyBusyTellerQ()
-  {
-	// is busyTellerQ empty?
-	return busyTellerQ.isEmpty();
-  }
+    public Teller getFrontBusyTellerQ() {
+        // get front of busy tellers
+        // "retrieve" but not "remove"
+        // Add statetments
+        return null;
+    }
 
-  public int numBusyTellers()
-  {
-	// get number of busy tellers
-	// Add statetments
-	return 0;
-  }
+    // -------------------------------------------------------
+    // customerQ methods: remove, insert, empty, size
+    //                    and check isCustomerQTooLong()
+    // -------------------------------------------------------
+    public Customer removeCustomerQ() {
+        // remove and return a customer 
+        // Add statetments
+        return null;
+    }
 
+    public void insertCustomerQ(Customer customer) {
+        // insert a customer 
+        // Add statetments
+    }
 
-  public Teller getFrontBusyTellerQ() 
-  {
-	// get front of busy tellers
-	// "retrieve" but not "remove"
-	// Add statetments
-	return null;
-  }
+    public boolean emptyCustomerQ() {
+        // is customerQ empty?
+        // Add statetments
+        return false;
+    }
 
+    public int numWaitingCustomers() {
+        // get number of customers 
+        // Add statetments
+        return 0;
+    }
 
-  // -------------------------------------------------------
-  // customerQ methods: remove, insert, empty, size
-  //                    and check isCustomerQTooLong()
-  // -------------------------------------------------------
+    public boolean isCustomerQTooLong() {
+        // is customerQ too long?
+        // Add statetments
+        return false;
+    }
 
-  public Customer removeCustomerQ()
-  {
-	// remove and return a customer 
-	// Add statetments
-	return null;
-  }
+    public void printStatistics() {
+        System.out.println("\t# waiting customers : " + numWaitingCustomers());
+        System.out.println("\t# busy tellers      : " + numBusyTellers());
+        System.out.println("\t# free tellers      : " + numFreeTellers());
+    }
 
-  public void insertCustomerQ(Customer customer)
-  {
-	// insert a customer 
-	// Add statetments
-  }
-
-
-  public boolean emptyCustomerQ()
-  {
-	// is customerQ empty?
-	// Add statetments
-	return false;
-  }
-
-  public int numWaitingCustomers()
-  {
-	// get number of customers 
-	// Add statetments
-	return 0;
-  }
-
-  public boolean isCustomerQTooLong()
-  {
-	// is customerQ too long?
-	// Add statetments
-	return false;
-  }
-
-  public void printStatistics()
-  {
-  	System.out.println("\t# waiting customers : "+numWaitingCustomers());
-  	System.out.println("\t# busy tellers      : "+numBusyTellers());
-  	System.out.println("\t# free tellers      : "+numFreeTellers());
-  }
-
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
         // quick check
-
         // create a ServiceArea and 4 customers
         ServiceArea sc = new ServiceArea(4, 5);
-        Customer c1 = new Customer(1,18,10);
-        Customer c2 = new Customer(2,33,11);
-        Customer c3 = new Customer(3,21,12);
-        Customer c4 = new Customer(4,37,13);
+        Customer c1 = new Customer(1, 18, 10);
+        Customer c2 = new Customer(2, 33, 11);
+        Customer c3 = new Customer(3, 21, 12);
+        Customer c4 = new Customer(4, 37, 13);
 
         // insert customers into customerQ
-  	sc.insertCustomerQ(c1);
-  	sc.insertCustomerQ(c2);
-  	sc.insertCustomerQ(c3);
-  	sc.insertCustomerQ(c4);
-	System.out.println(""+sc.customerQ);
+        sc.insertCustomerQ(c1);
+        sc.insertCustomerQ(c2);
+        sc.insertCustomerQ(c3);
+        sc.insertCustomerQ(c4);
+        System.out.println("" + sc.customerQ);
         System.out.println("===============================================");
-	System.out.println("Remove customer:"+sc.removeCustomerQ());
-	System.out.println("Remove customer:"+sc.removeCustomerQ());
-	System.out.println("Remove customer:"+sc.removeCustomerQ());
-	System.out.println("Remove customer:"+sc.removeCustomerQ());
+        System.out.println("Remove customer:" + sc.removeCustomerQ());
+        System.out.println("Remove customer:" + sc.removeCustomerQ());
+        System.out.println("Remove customer:" + sc.removeCustomerQ());
+        System.out.println("Remove customer:" + sc.removeCustomerQ());
         System.out.println("===============================================");
 
         // remove tellers from freeTellerQ
-	System.out.println("freeTellerQ:"+sc.freeTellerQ);
+        System.out.println("freeTellerQ:" + sc.freeTellerQ);
         System.out.println("===============================================");
-	Teller p1=sc.removeFreeTellerQ();
-	Teller p2=sc.removeFreeTellerQ();
-	Teller p3=sc.removeFreeTellerQ();
-	Teller p4=sc.removeFreeTellerQ();
-	System.out.println("Remove free teller:"+p1);
-	System.out.println("Remove free teller:"+p2);
-	System.out.println("Remove free teller:"+p3);
-	System.out.println("Remove free teller:"+p4);
+        Teller p1 = sc.removeFreeTellerQ();
+        Teller p2 = sc.removeFreeTellerQ();
+        Teller p3 = sc.removeFreeTellerQ();
+        Teller p4 = sc.removeFreeTellerQ();
+        System.out.println("Remove free teller:" + p1);
+        System.out.println("Remove free teller:" + p2);
+        System.out.println("Remove free teller:" + p3);
+        System.out.println("Remove free teller:" + p4);
         System.out.println("===============================================");
-	System.out.println("freeTellerQ:"+sc.freeTellerQ);
-	System.out.println("busyTellerQ:"+sc.busyTellerQ);
+        System.out.println("freeTellerQ:" + sc.freeTellerQ);
+        System.out.println("busyTellerQ:" + sc.busyTellerQ);
         System.out.println("===============================================");
-
 
         // insert customers to tellers
-        p1.freeToBusy (c1, 13);
-        p2.freeToBusy (c2, 13);
-        p3.freeToBusy (c3, 13);
-        p4.freeToBusy (c4, 13);
-	System.out.println("Assign customers to free tellers");
+        p1.freeToBusy(c1, 13);
+        p2.freeToBusy(c2, 13);
+        p3.freeToBusy(c3, 13);
+        p4.freeToBusy(c4, 13);
+        System.out.println("Assign customers to free tellers");
 
         // insert tellers to busyTellerQ
         System.out.println("===============================================");
-	System.out.println("Insert tellers to busyTellerQ");
-	sc.insertBusyTellerQ(p1);
-	sc.insertBusyTellerQ(p2);
-	sc.insertBusyTellerQ(p3);
-	sc.insertBusyTellerQ(p4);
-	System.out.println("busyTellerQ:"+sc.busyTellerQ);
+        System.out.println("Insert tellers to busyTellerQ");
+        sc.insertBusyTellerQ(p1);
+        sc.insertBusyTellerQ(p2);
+        sc.insertBusyTellerQ(p3);
+        sc.insertBusyTellerQ(p4);
+        System.out.println("busyTellerQ:" + sc.busyTellerQ);
         System.out.println("===============================================");
 
         // remove tellers from busyTellerQ
-	p1=sc.removeBusyTellerQ();
-	p2=sc.removeBusyTellerQ();
-	p3=sc.removeBusyTellerQ();
-	p4=sc.removeBusyTellerQ();
+        p1 = sc.removeBusyTellerQ();
+        p2 = sc.removeBusyTellerQ();
+        p3 = sc.removeBusyTellerQ();
+        p4 = sc.removeBusyTellerQ();
 
         p1.busyToFree();
         p2.busyToFree();
         p3.busyToFree();
         p4.busyToFree();
 
-	System.out.println("Remove busy teller:"+p1);
-	System.out.println("Remove busy teller:"+p2);
-	System.out.println("Remove busy teller:"+p3);
-	System.out.println("Remove busy teller:"+p4);
+        System.out.println("Remove busy teller:" + p1);
+        System.out.println("Remove busy teller:" + p2);
+        System.out.println("Remove busy teller:" + p3);
+        System.out.println("Remove busy teller:" + p4);
 
-   }
-
+    }
 
 };
-
