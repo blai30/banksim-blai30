@@ -70,14 +70,17 @@ class Teller {
 
     void updateTotalFreeTime() {
         //add statements
+        this.totalFreeTime = this.endFreeTime - this.startFreeTime;
     }
 
     void updateTotalBusyTime() {
         //add statements
+        this.totalBusyTime = this.endBusyTime - this.startBusyTime;
     }
 
     void updateTotalCustomers() {
         //add statements
+        this.totalCustomers++;
     }
 
     //--------------------------------
