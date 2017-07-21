@@ -96,7 +96,7 @@ class Teller {
 
         //add statements
         this.setEndFreeTime(currentTime);
-        updateTotalFreeTime();
+        this.updateTotalFreeTime();
         this.setStartBusyTime(currentTime);
         this.setEndBusyTime(this.startBusyTime + newCustomer.getTransactionTime());
         this.setCustomer(newCustomer);
