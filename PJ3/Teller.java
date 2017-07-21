@@ -92,6 +92,12 @@ class Teller {
         //         update totalCustomers
 
         //add statements
+        this.setEndFreeTime(currentTime);
+        updateTotalFreeTime();
+        this.setStartBusyTime();
+        this.setEndBusyTime();
+        this.setCustomer();
+        this.updateTotalCustomers();
     }
 
     // Transition from busy interval to free interval
@@ -102,7 +108,9 @@ class Teller {
         //         return customer 
 
         //add statements
-        return null;
+        this.updateTotalBusyTime();
+        this.setStartFreeTime();
+        return this.customer;
     }
 
     //--------------------------------
