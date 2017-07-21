@@ -109,7 +109,7 @@ class Teller {
 
         //add statements
         this.updateTotalBusyTime();
-        this.setStartFreeTime();
+        this.setStartFreeTime(this.endBusyTime);
         return this.customer;
     }
 
