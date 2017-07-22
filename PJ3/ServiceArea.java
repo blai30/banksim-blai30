@@ -83,24 +83,25 @@ class ServiceArea {
     public Teller removeFreeTellerQ() {
         // remove and return a free teller
         // Add statetments
-        return null;
+        return this.freeTellerQ.poll();
     }
 
     public void insertFreeTellerQ(Teller teller) {
         // insert a free teller
         // Add statetments
+        this.freeTellerQ.add(teller);
     }
 
     public boolean emptyFreeTellerQ() {
         // is freeTellerQ empty?
         // Add statetments
-        return false;
+        return this.freeTellerQ.isEmpty();
     }
 
     public int numFreeTellers() {
         // get number of free tellers
         // Add statetments
-        return 0;
+        return this.freeTellerQ.size();
     }
 
     // -------------------------------------------------------
@@ -109,12 +110,13 @@ class ServiceArea {
     public Teller removeBusyTellerQ() {
         // remove and return a busy teller
         // Add statetments
-        return null;
+        return this.busyTellerQ.poll();
     }
 
     public void insertBusyTellerQ(Teller teller) {
         // insert a busy teller
         // Add statetments
+        this.busyTellerQ.add(teller);
     }
 
     public boolean emptyBusyTellerQ() {
@@ -125,14 +127,14 @@ class ServiceArea {
     public int numBusyTellers() {
         // get number of busy tellers
         // Add statetments
-        return 0;
+        return this.busyTellerQ.size();
     }
 
     public Teller getFrontBusyTellerQ() {
         // get front of busy tellers
         // "retrieve" but not "remove"
         // Add statetments
-        return null;
+        return this.busyTellerQ.peek();
     }
 
     // -------------------------------------------------------
