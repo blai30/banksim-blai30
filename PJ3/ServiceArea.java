@@ -144,30 +144,31 @@ class ServiceArea {
     public Customer removeCustomerQ() {
         // remove and return a customer 
         // Add statetments
-        return null;
+        return this.customerQ.poll();
     }
 
     public void insertCustomerQ(Customer customer) {
         // insert a customer 
         // Add statetments
+        this.customerQ.add(customer);
     }
 
     public boolean emptyCustomerQ() {
         // is customerQ empty?
         // Add statetments
-        return false;
+        return this.customerQ.isEmpty();
     }
 
     public int numWaitingCustomers() {
         // get number of customers 
         // Add statetments
-        return 0;
+        return this.customerQ.size();
     }
 
     public boolean isCustomerQTooLong() {
         // is customerQ too long?
         // Add statetments
-        return false;
+        return this.customerQ.size() >= this.customerQLimit;
     }
 
     public void printStatistics() {
