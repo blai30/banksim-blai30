@@ -69,8 +69,12 @@ class ServiceArea {
                 new CompareTellers());
 
         // initialize customerQlimit
+        this.customerQLimit = customerQlimit;
         // Construct Teller objects and insert into FreeTellerQ
         // assign teller ID from 1, 2,..., numTellers
+        for (int i = 0; i < numTellers; i++) {
+            this.insertFreeTellerQ(new Teller(i + 1));
+        }
     }
 
     // -------------------------------------------------
