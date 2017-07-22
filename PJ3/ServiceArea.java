@@ -53,6 +53,7 @@ class ServiceArea {
     // Constructor 
     public ServiceArea() {
         // add statements
+        this(1, 1);
     }
 
     // Constructor 
@@ -60,6 +61,8 @@ class ServiceArea {
         // add additional statements
 
         // use ArrayDeque to construct FIFO queue objects
+        this.customerQ = new ArrayDeque<Customer>(customerQlimit);
+        this.freeTellerQ = new ArrayDeque<Teller>(numTellers);
         // construct PriorityQueue object
         // overide compare() in Comparator to compare Teller objects
         busyTellerQ = new PriorityQueue<Teller>(numTellers,
