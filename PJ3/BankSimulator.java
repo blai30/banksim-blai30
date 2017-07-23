@@ -30,6 +30,10 @@ class BankSimulator {
     // initialize data fields
     private BankSimulator() {
         // add statements
+        this.numGoaway = 0;
+        this.numServed = 0;
+        this.totalWaitingTime = 0;
+        this.customerIDCounter = 0;
     }
 
     private void setupParameters() {
