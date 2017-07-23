@@ -61,7 +61,12 @@ class BankSimulator {
         this.dataSource = input.nextInt();
         if(this.dataSource == 1) {
             System.out.println("Enter filename\t:");
-            
+            String fileName = input.nextLine();
+            try {
+                this.dataFile = new Scanner(new File(input.next()));
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found. " + e.getMessage());
+            }
         }
     }
 
