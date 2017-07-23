@@ -30,6 +30,12 @@ class BankSimulator {
     // initialize data fields
     private BankSimulator() {
         // add statements
+        this.numTellers = 0;
+        this.customerQLimit = 0;
+        this.simulationTime = 0;
+        this.dataSource = 0;
+        this.chancesOfArrival = 0;
+        this.maxTransactionTime = 0;
         this.numGoaway = 0;
         this.numServed = 0;
         this.totalWaitingTime = 0;
