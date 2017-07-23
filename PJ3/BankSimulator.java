@@ -47,20 +47,20 @@ class BankSimulator {
         // setup dataFile or dataRandom
         // add statements
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter simulation time (positive integer)\t:");
+        System.out.print("Enter simulation time (positive integer)\t: ");
         this.simulationTime = input.nextInt();
-        System.out.print("Enter the number of tellers\t:");
+        System.out.print("Enter the number of tellers\t: ");
         this.numTellers = input.nextInt();
-        System.out.print("Enter chances (0% < & <= 100%) of new customer\t:");
+        System.out.print("Enter chances (0% < & <= 100%) of new customer\t: ");
         this.chancesOfArrival = input.nextInt();
-        System.out.print("Enter maximum transaction time of customers\t:");
+        System.out.print("Enter maximum transaction time of customers\t: ");
         this.maxTransactionTime = input.nextInt();
-        System.out.print("Enter customer queue limit\t:");
+        System.out.print("Enter customer queue limit\t: ");
         this.customerQLimit = input.nextInt();
-        System.out.print("Enter 0/1 to get data from Random/file\t:");
+        System.out.print("Enter 0/1 to get data from Random/file\t: ");
         this.dataSource = input.nextInt();
         if(this.dataSource == 1) {
-            System.out.print("Enter filename\t:");
+            System.out.print("Enter filename\t: ");
             try {
                 this.dataFile = new Scanner(new File(input.next()));
             } catch (FileNotFoundException e) {
