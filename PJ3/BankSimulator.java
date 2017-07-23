@@ -46,6 +46,23 @@ class BankSimulator {
         // read input parameters
         // setup dataFile or dataRandom
         // add statements
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter simulation time (positive integer)\t:");
+        this.simulationTime = input.nextInt();
+        System.out.println("Enter the number of tellers\t:");
+        this.numTellers = input.nextInt();
+        System.out.println("Enter chances (0% < & <= 100%) of new customer\t:");
+        this.chancesOfArrival = input.nextInt();
+        System.out.println("Enter maximum transaction time of customers\t:");
+        this.maxTransactionTime = input.nextInt();
+        System.out.println("Enter customer queue limit\t:");
+        this.customerQLimit = input.nextInt();
+        System.out.println("Enter 0/1 to get data from Random/file\t:");
+        this.dataSource = input.nextInt();
+        if(this.dataSource == 1) {
+            System.out.println("Enter filename\t:");
+            
+        }
     }
 
     // Refer to step 1 in doSimulation()
