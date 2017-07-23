@@ -60,7 +60,7 @@ class BankSimulator {
         System.out.print("Enter 0/1 to get data from Random/file\t\t: ");
         this.dataSource = input.nextInt();
         if(this.dataSource == 1) {
-            System.out.print("Enter filename\t: ");
+            System.out.print("Enter filename\t\t\t\t\t: ");
             try {
                 this.dataFile = new Scanner(new File(input.next()));
             } catch (FileNotFoundException e) {
