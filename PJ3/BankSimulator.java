@@ -59,14 +59,15 @@ class BankSimulator {
         this.customerQLimit = input.nextInt();
         System.out.print("Enter 0/1 to get data from Random/file\t\t: ");
         this.dataSource = input.nextInt();
-        if(this.dataSource == 1) {
+        if (this.dataSource == 1) {
             System.out.print("Enter filename\t\t\t\t\t: ");
             try {
-                this.dataFile = new Scanner(new File(input.next()));
+                dataFile = new Scanner(new File(input.next()));
             } catch (FileNotFoundException e) {
-                System.out.println("File not found. " + e.getMessage());
+                System.out.println("File not found. Using random data.");
             }
         }
+        this.dataRandom = new Random();
     }
 
     // Refer to step 1 in doSimulation()
