@@ -47,24 +47,28 @@ class BankSimulator {
         // setup dataFile or dataRandom
         // add statements
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter simulation time (positive integer)\t: ");
-        this.simulationTime = input.nextInt();
-        System.out.print("Enter the number of tellers\t\t\t: ");
-        this.numTellers = input.nextInt();
-        System.out.print("Enter chances (0% < & <= 100%) of new customer\t: ");
-        this.chancesOfArrival = input.nextInt();
-        System.out.print("Enter maximum transaction time of customers\t: ");
-        this.maxTransactionTime = input.nextInt();
-        System.out.print("Enter customer queue limit\t\t\t: ");
-        this.customerQLimit = input.nextInt();
+//        System.out.print("Enter simulation time (positive integer)\t: ");
+//        this.simulationTime = input.nextInt();
+//        System.out.print("Enter the number of tellers\t\t\t: ");
+//        this.numTellers = input.nextInt();
+//        System.out.print("Enter chances (0% < & <= 100%) of new customer\t: ");
+//        this.chancesOfArrival = input.nextInt();
+//        System.out.print("Enter maximum transaction time of customers\t: ");
+//        this.maxTransactionTime = input.nextInt();
+//        System.out.print("Enter customer queue limit\t\t\t: ");
+//        this.customerQLimit = input.nextInt();
         System.out.print("Enter 0/1 to get data from Random/file\t\t: ");
         this.dataSource = input.nextInt();
+        if (this.dataSource != 0 && this.dataSource != 1) {
+            System.out.println("Invalid input. Using Random data.");
+            this.dataSource = 0;
+        }
         if (this.dataSource == 1) {
             System.out.print("Enter filename\t\t\t\t\t: ");
             try {
                 dataFile = new Scanner(new File(input.next()));
             } catch (FileNotFoundException e) {
-                System.out.println("File not found. Using random data.");
+                System.out.println("File not found. Using Random data.");
             }
         }
         this.dataRandom = new Random();
@@ -76,6 +80,10 @@ class BankSimulator {
         // set anyNewArrival and transactionTime
         // see Readme file for more info
         // add statements
+        if (this.dataSource == 0) {
+            this.anyNewArrival = (this.dataRandom.nextInt(100) + 1) <= this.chancesOfArrival;
+            this.transactionTime = this.dataRandom.nextInt(maxTransactionTime) + 1;
+        }
     }
 
     private void doSimulation() {
