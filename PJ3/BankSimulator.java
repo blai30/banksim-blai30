@@ -57,12 +57,10 @@ class BankSimulator {
 //        this.maxTransactionTime = input.nextInt();
 //        System.out.print("Enter customer queue limit\t\t\t: ");
 //        this.customerQLimit = input.nextInt();
-        System.out.print("Enter 0/1 to get data from Random/file\t\t: ");
-        this.dataSource = input.nextInt();
-        if (this.dataSource != 0 && this.dataSource != 1) {
-            System.out.println("Invalid input. Using Random data.");
-            this.dataSource = 0;
-        }
+        do {
+            System.out.print("Enter 0/1 to get data from Random/file\t\t: ");
+            this.dataSource = input.nextInt();
+        } while (this.dataSource != 0 && this.dataSource != 1);
         if (this.dataSource == 1) {
             System.out.print("Enter filename\t\t\t\t\t: ");
             try {
@@ -91,7 +89,7 @@ class BankSimulator {
 
     private void doSimulation() {
         // add statements
-
+        System.out.println("\n\n\t***  Start Simulation  ***\n\n");
         // Initialize ServiceArea
         // Time driver simulation loop
         for (int currentTime = 0; currentTime < simulationTime; currentTime++) {
