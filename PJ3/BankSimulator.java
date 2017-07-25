@@ -96,7 +96,7 @@ class BankSimulator {
         } else {
             System.out.print(" is");
         }
-        System.out.println(" ready...");
+        System.out.println(" ready...\n\n");
     }
     
     private void doSimulation() {
