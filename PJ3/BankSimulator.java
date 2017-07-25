@@ -61,6 +61,7 @@ class BankSimulator {
             System.out.print("Enter 0/1 to get data from Random/file\t\t: ");
             this.dataSource = input.nextInt();
         } while (this.dataSource != 0 && this.dataSource != 1);
+        
         if (this.dataSource == 1) {
             System.out.print("Enter filename\t\t\t\t\t: ");
             try {
@@ -91,6 +92,7 @@ class BankSimulator {
         // add statements
         System.out.println("\n\n\t***  Start Simulation  ***\n\n");
         // Initialize ServiceArea
+        this.servicearea = new ServiceArea(this.numTellers, this.customerQLimit);
         // Time driver simulation loop
         for (int currentTime = 0; currentTime < simulationTime; currentTime++) {
 
