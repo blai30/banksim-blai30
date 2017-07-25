@@ -100,7 +100,7 @@ class Teller {
         this.setStartBusyTime(currentTime);
         this.setCustomer(newCustomer);
         this.setEndBusyTime(this.startBusyTime + this.customer.getTransactionTime());
-        this.customer.setFinishTime(this.endBusyTime);
+        this.customer.setFinishTime(currentTime + this.customer.getTransactionTime());
         this.updateTotalCustomers();
     }
 
