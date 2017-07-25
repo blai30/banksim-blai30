@@ -83,6 +83,9 @@ class BankSimulator {
         if (this.dataSource == 0) {
             this.anyNewArrival = (this.dataRandom.nextInt(100) + 1) <= this.chancesOfArrival;
             this.transactionTime = this.dataRandom.nextInt(maxTransactionTime) + 1;
+        } else if (this.dataSource == 1) {
+            this.anyNewArrival = ((this.dataFile.nextInt() % 100) + 1) <= this.chancesOfArrival;
+            this.transactionTime = (this.dataFile.nextInt() % maxTransactionTime) + 1;
         }
     }
 
