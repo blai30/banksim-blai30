@@ -62,6 +62,5 @@ class Customer
 	Customer mycustomer = new Customer(1,5,18);
 	mycustomer.setFinishTime(28);
 	System.out.println("Customer Info:"+mycustomer);
-
     }
 }
