@@ -47,16 +47,16 @@ class BankSimulator {
         // setup dataFile or dataRandom
         // add statements
         Scanner input = new Scanner(System.in);
-//        System.out.print("Enter simulation time (positive integer)\t: ");
-//        this.simulationTime = input.nextInt();
-//        System.out.print("Enter the number of tellers\t\t\t: ");
-//        this.numTellers = input.nextInt();
-//        System.out.print("Enter chances (0% < & <= 100%) of new customer\t: ");
-//        this.chancesOfArrival = input.nextInt();
-//        System.out.print("Enter maximum transaction time of customers\t: ");
-//        this.maxTransactionTime = input.nextInt();
-//        System.out.print("Enter customer queue limit\t\t\t: ");
-//        this.customerQLimit = input.nextInt();
+        System.out.print("Enter simulation time (positive integer)\t: ");
+        this.simulationTime = input.nextInt();
+        System.out.print("Enter the number of tellers\t\t\t: ");
+        this.numTellers = input.nextInt();
+        System.out.print("Enter chances (0% < & <= 100%) of new customer\t: ");
+        this.chancesOfArrival = input.nextInt();
+        System.out.print("Enter maximum transaction time of customers\t: ");
+        this.maxTransactionTime = input.nextInt();
+        System.out.print("Enter customer queue limit\t\t\t: ");
+        this.customerQLimit = input.nextInt();
         do {
             System.out.print("Enter 0/1 to get data from Random/file\t\t: ");
             this.dataSource = input.nextInt();
@@ -88,11 +88,23 @@ class BankSimulator {
         }
     }
 
+    private void startReadyTellers() {
+        // Tellers that are ready from start of simulation
+        System.out.print("Teller #1");
+        if (this.numTellers > 1) {
+            System.out.print(" to #" + this.numTellers + " are");
+        } else {
+            System.out.print(" is");
+        }
+        System.out.println(" ready...");
+    }
+    
     private void doSimulation() {
         // add statements
         System.out.println("\n\n\t***  Start Simulation  ***\n\n");
         // Initialize ServiceArea
         this.servicearea = new ServiceArea(this.numTellers, this.customerQLimit);
+        startReadyTellers();
         // Time driver simulation loop
         for (int currentTime = 0; currentTime < simulationTime; currentTime++) {
 
@@ -100,8 +112,8 @@ class BankSimulator {
             getCustomerData();
 
             if (anyNewArrival) {
-
                 // Step 1.1: setup customer data
+                
                 // Step 1.2: check customer waiting queue too long?
                 //           if it is too long, update numGoaway
                 //           else enter customer queue
