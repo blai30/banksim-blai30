@@ -107,10 +107,11 @@ class BankSimulator {
         startReadyTellers();
         // Time driver simulation loop
         for (int currentTime = 0; currentTime < simulationTime; currentTime++) {
-
+            System.out.println("---------------------------------------------");
+            System.out.println("Time : " + currentTime);
             // Step 1: any new customer enters the bank?
             getCustomerData();
-
+            
             if (anyNewArrival) {
                 // Step 1.1: setup customer data
                 
@@ -136,6 +137,14 @@ class BankSimulator {
 
         // need to free up all customers in queue to get extra waiting time.
         // need to free up all tellers in free/busy queues to get extra free & busy time.
+        System.out.println("\n\n============================================\n\n");
+        System.out.println("End of simulation report\n");
+        System.out.println("\t# total arrival customers  : " + this.customerIDCounter);
+        System.out.println("\t# customers gone-away      : " + this.numGoaway);
+        System.out.println("\t# customers served         : " + this.numServed);
+        
+        System.out.println("\n\t*** Current Tellers Info. ***\n\n");
+        this.servicearea.printStatistics();
     }
 
     // *** main method to run simulation ****
