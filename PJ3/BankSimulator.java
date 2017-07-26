@@ -47,6 +47,8 @@ class BankSimulator {
         // setup dataFile or dataRandom
         // add statements
         Scanner input = new Scanner(System.in);
+        System.out.println("\n\t***  Get Simulation Parameters  ***\n");
+        
         System.out.print("Enter simulation time (positive integer)\t: ");
         this.simulationTime = input.nextInt();
         System.out.print("Enter the number of tellers\t\t\t: ");
