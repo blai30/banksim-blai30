@@ -127,7 +127,7 @@ class Teller {
         System.out.println("\t\tTotal busy time          : " + totalBusyTime);
         System.out.println("\t\tTotal # of customers     : " + totalCustomers);
         if (totalCustomers > 0) {
-            System.out.format("\t\tAverage transaction time : %.2f%n\n", (totalBusyTime * 1.0) / totalCustomers);
+            System.out.format("\t\tAverage transaction time : %.2f\n\n", (totalBusyTime * 1.0) / totalCustomers);
         }
     }
 

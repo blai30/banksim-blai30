@@ -166,15 +166,15 @@ class BankSimulator {
                 // Step 1.1: setup customer data
                 this.customerIDCounter++;
                 newCustomer = new Customer(this.customerIDCounter, this.transactionTime, currentTime);
-                System.out.println("customer #" + newCustomer.getCustomerID() + " arrives with transaction time " + newCustomer.getTransactionTime() + " units");
+                System.out.println("\tcustomer #" + newCustomer.getCustomerID() + " arrives with transaction time " + newCustomer.getTransactionTime() + " units");
                 // Step 1.2: check customer waiting queue too long?
                 //           if it is too long, update numGoaway
                 //           else enter customer queue
                 if (this.servicearea.isCustomerQTooLong()) {
                     this.numGoaway++;
-                    System.out.println("customer #" + newCustomer.getCustomerID() + " leaves because customer queue is full");
+                    System.out.println("\tcustomer #" + newCustomer.getCustomerID() + " leaves because customer queue is full");
                 } else {
-                    System.out.println("customer #" + newCustomer.getCustomerID() + " wait in the customer queue");
+                    System.out.println("\tcustomer #" + newCustomer.getCustomerID() + " wait in the customer queue");
                     this.servicearea.insertCustomerQ(newCustomer);
                 }
             } else {
@@ -185,8 +185,8 @@ class BankSimulator {
                 Teller busyToFree = this.servicearea.removeBusyTellerQ();
                 busyToFree.busyToFree();
                 this.servicearea.insertFreeTellerQ(busyToFree);
-                System.out.println("customer #" + busyToFree.getCustomer().getCustomerID() + " is done");
-                System.out.println("teller #" + busyToFree.getTellerID() + " is free");
+                System.out.println("\tcustomer #" + busyToFree.getCustomer().getCustomerID() + " is done");
+                System.out.println("\tteller #" + busyToFree.getTellerID() + " is free");
             }
             
             // Step 3: get free tellers to serve waiting customers at currentTime
@@ -196,8 +196,8 @@ class BankSimulator {
                 Customer customer = this.servicearea.removeCustomerQ();
                 freeToBusy.freeToBusy(customer, currentTime);
                 this.servicearea.insertBusyTellerQ(freeToBusy);
-                System.out.println("customer #" + freeToBusy.getCustomer().getCustomerID() + " gets a teller");
-                System.out.println("teller #" + freeToBusy.getTellerID() + " starts serving customer #" + freeToBusy.getCustomer().getCustomerID() + " for " + freeToBusy.getCustomer().getTransactionTime() + " units");
+                System.out.println("\tcustomer #" + freeToBusy.getCustomer().getCustomerID() + " gets a teller");
+                System.out.println("\tteller #" + freeToBusy.getTellerID() + " starts serving customer #" + freeToBusy.getCustomer().getCustomerID() + " for " + freeToBusy.getCustomer().getTransactionTime() + " units");
             }
         } // end simulation loop
 
