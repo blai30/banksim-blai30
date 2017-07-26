@@ -116,11 +116,10 @@ class BankSimulator {
                 dataFile = new Scanner(new File(input.next()));
             } catch (FileNotFoundException e) {
                 System.out.println("File not found. Using Random data.");
-                this.dataRandom = new Random();
             }
-        } else {
-            this.dataRandom = new Random();
         }
+        
+        this.dataRandom = new Random();
         
     }
 
