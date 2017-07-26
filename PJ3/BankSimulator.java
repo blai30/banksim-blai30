@@ -118,7 +118,7 @@ class BankSimulator {
                 System.out.println("File not found. Using Random data.");
             }
         }
-        
+        input.close();
         this.dataRandom = new Random();
         
     }
