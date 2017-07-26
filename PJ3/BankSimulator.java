@@ -176,6 +176,7 @@ class BankSimulator {
                 } else {
                     System.out.println("customer #" + newCustomer.getCustomerID() + " wait in the customer queue");
                     this.servicearea.insertCustomerQ(newCustomer);
+                    
                 }
             } else {
                 System.out.println("\tNo new customer!");
@@ -186,6 +187,10 @@ class BankSimulator {
         } // end simulation loop
 
         // clean-up - close scanner
+        if (this.dataSource == 1) {
+            this.dataFile.close();
+        }
+        this.dataRandom = null;
     }
 
     private void printStatistics() {
