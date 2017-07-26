@@ -201,9 +201,17 @@ class BankSimulator {
         
         System.out.println("\n\nBusy Tellers Info. :\n\n");
         while (!servicearea.emptyBusyTellerQ()) {
-            Teller teller = servicearea.removeBusyTellerQ();
+            Teller busyTeller = servicearea.removeBusyTellerQ();
+            busyTeller.setEndBusyTime(this.simulationTime);
+            busyTeller.printStatistics();
         }
+        
         System.out.println("\n\nFree Tellers Info. :\n\n");
+        while (!servicearea.emptyFreeTellerQ()) {
+            Teller freeTeller = servicearea.removeFreeTellerQ();
+            freeTeller.setEndFreeTime(this.simulationTime);
+            freeTeller.printStatistics();
+        }
     }
 
     // *** main method to run simulation ****
