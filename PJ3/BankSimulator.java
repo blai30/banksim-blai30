@@ -161,13 +161,21 @@ class BankSimulator {
             System.out.println("Time : " + currentTime);
             // Step 1: any new customer enters the bank?
             getCustomerData();
-            
+            Customer newCustomer;
             if (anyNewArrival) {
                 // Step 1.1: setup customer data
-                
+                this.customerIDCounter++;
+                newCustomer = new Customer(this.customerIDCounter, this.transactionTime, currentTime);
+                System.out.println("customer #" + newCustomer.getCustomerID() + " arrives with transaction time " + newCustomer.getTransactionTime() + " units");
                 // Step 1.2: check customer waiting queue too long?
                 //           if it is too long, update numGoaway
                 //           else enter customer queue
+                if (servicearea.isCustomerQTooLong()) {
+                    this.numGoaway++;
+                    System.out.println("customer #" + newCustomer.getCustomerID() + " leaves because customer queue is full");
+                } else {
+                    System.out.println("customer #" + newCustomer.getCustomerID() + " wait in the customer queue");
+                }
             } else {
                 System.out.println("\tNo new customer!");
             }
