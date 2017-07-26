@@ -120,7 +120,6 @@ class BankSimulator {
         }
         input.close();
         this.dataRandom = new Random();
-        
     }
 
     // Refer to step 1 in doSimulation()
@@ -201,7 +200,9 @@ class BankSimulator {
                 (double) this.totalWaitingTime / servicearea.numWaitingCustomers());
         
         System.out.println("\n\nBusy Tellers Info. :\n\n");
-        
+        while (!servicearea.emptyBusyTellerQ()) {
+            Teller teller = servicearea.removeBusyTellerQ();
+        }
         System.out.println("\n\nFree Tellers Info. :\n\n");
     }
 
