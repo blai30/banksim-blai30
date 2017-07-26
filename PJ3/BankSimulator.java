@@ -229,7 +229,7 @@ class BankSimulator {
         System.out.printf("\tAverage waiting time\t: %.2f\n",
                 (double) this.totalWaitingTime / this.servicearea.numWaitingCustomers());
         
-        System.out.println("\n\nBusy Tellers Info. :\n\n");
+        System.out.println("\n\n\tBusy Tellers Info. :\n\n");
         if (!this.servicearea.emptyBusyTellerQ()) {
             while (!this.servicearea.emptyBusyTellerQ()) {
                 Teller busyTeller = this.servicearea.removeBusyTellerQ();
@@ -240,7 +240,7 @@ class BankSimulator {
             System.out.println("\t\tBusy Teller queue is empty.\n\n");
         }
         
-        System.out.println("Free Tellers Info. :\n\n");
+        System.out.println("\n\tFree Tellers Info. :\n\n");
         if (!this.servicearea.emptyFreeTellerQ()) {
             while (!this.servicearea.emptyFreeTellerQ()) {
                 Teller freeTeller = this.servicearea.removeFreeTellerQ();
@@ -248,7 +248,7 @@ class BankSimulator {
                 freeTeller.printStatistics();
             }
         } else {
-            System.out.println("\t\tFree Teller queue is empty.\n\n");
+            System.out.println("\t\tFree Teller queue is empty.\n");
         }
         
         // Clearing
