@@ -196,7 +196,13 @@ class BankSimulator {
         System.out.println("\n\t*** Current Tellers Info. ***\n\n");
         this.servicearea.printStatistics();
         
+        System.out.println("\n\tTotal waiting time\t: " + this.totalWaitingTime);
+        System.out.printf("\tAverage waiting time\t: %.2f\n",
+                (double) this.totalWaitingTime / servicearea.numWaitingCustomers());
         
+        System.out.println("\n\nBusy Tellers Info. :\n\n");
+        
+        System.out.println("\n\nFree Tellers Info. :\n\n");
     }
 
     // *** main method to run simulation ****
