@@ -130,23 +130,14 @@ class BankSimulator {
         // see Readme file for more info
         // add statements
         if (this.dataSource == 0) {
+            // Using Random
             this.anyNewArrival = (this.dataRandom.nextInt(100) + 1) <= this.chancesOfArrival;
             this.transactionTime = this.dataRandom.nextInt(maxTransactionTime) + 1;
         } else if (this.dataSource == 1) {
+            // Using file
             this.anyNewArrival = ((this.dataFile.nextInt() % 100) + 1) <= this.chancesOfArrival;
             this.transactionTime = (this.dataFile.nextInt() % maxTransactionTime) + 1;
         }
-    }
-
-    private void startReadyTellers() {
-        // Tellers that are ready from start of simulation
-        System.out.print("Teller #1");
-        if (this.numTellers > 1) {
-            System.out.print(" to #" + this.numTellers + " are");
-        } else {
-            System.out.print(" is");
-        }
-        System.out.println(" ready...\n\n");
     }
     
     private void doSimulation() {
@@ -154,7 +145,16 @@ class BankSimulator {
         System.out.println("\n\n\t***  Start Simulation  ***\n\n");
         // Initialize ServiceArea
         this.servicearea = new ServiceArea(this.numTellers, this.customerQLimit);
-        startReadyTellers();
+        
+        // Print tellers that are ready beginning simulation
+        System.out.print("Teller #1");
+        if (this.numTellers > 1) {
+            System.out.print(" to #" + this.numTellers + " are");
+        } else {
+            System.out.print(" is");
+        }
+        System.out.println(" ready...\n\n");
+        
         // Time driver simulation loop
         for (int currentTime = 0; currentTime < simulationTime; currentTime++) {
             System.out.println("---------------------------------------------");
