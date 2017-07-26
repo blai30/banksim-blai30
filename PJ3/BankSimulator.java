@@ -212,6 +212,21 @@ class BankSimulator {
             freeTeller.setEndFreeTime(this.simulationTime);
             freeTeller.printStatistics();
         }
+        
+        // Clearing
+        this.customerIDCounter = 0;
+        this.numGoaway = 0;
+        this.numServed = 0;
+        this.totalWaitingTime = 0;
+        if (!servicearea.emptyBusyTellerQ()) {
+            servicearea.removeBusyTellerQ();
+        }
+        if (!servicearea.emptyFreeTellerQ()) {
+            servicearea.removeFreeTellerQ();
+        }
+        if (!servicearea.emptyCustomerQ()) {
+            servicearea.removeCustomerQ();
+        }
     }
 
     // *** main method to run simulation ****
