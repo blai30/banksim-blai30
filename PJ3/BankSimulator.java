@@ -47,7 +47,7 @@ class BankSimulator {
         // setup dataFile or dataRandom
         // add statements
         Scanner input = new Scanner(System.in);
-        System.out.println("\n\t***  Get Simulation Parameters  ***\n");
+        System.out.println("\n\t***  Get Simulation Parameters  ***\n\n");
         
         // Simulation time
         do {
@@ -195,6 +195,8 @@ class BankSimulator {
         
         System.out.println("\n\t*** Current Tellers Info. ***\n\n");
         this.servicearea.printStatistics();
+        
+        
     }
 
     // *** main method to run simulation ****
