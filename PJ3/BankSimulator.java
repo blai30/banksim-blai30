@@ -49,19 +49,59 @@ class BankSimulator {
         Scanner input = new Scanner(System.in);
         System.out.println("\n\t***  Get Simulation Parameters  ***\n");
         
-        System.out.print("Enter simulation time (positive integer)\t: ");
-        this.simulationTime = input.nextInt();
-        System.out.print("Enter the number of tellers\t\t\t: ");
-        this.numTellers = input.nextInt();
-        System.out.print("Enter chances (0% < & <= 100%) of new customer\t: ");
-        this.chancesOfArrival = input.nextInt();
-        System.out.print("Enter maximum transaction time of customers\t: ");
-        this.maxTransactionTime = input.nextInt();
-        System.out.print("Enter customer queue limit\t\t\t: ");
-        this.customerQLimit = input.nextInt();
+        do {
+            System.out.print("Enter simulation time (positive integer)\t: ");
+            if (input.hasNextInt()) {
+                this.simulationTime = input.nextInt();
+            } else {
+                input.next();
+            }
+        } while (this.simulationTime > 10000 || this.simulationTime <= 0);
+        
+        do {
+            System.out.print("Enter the number of tellers\t\t\t: ");
+            if (input.hasNextInt()) {
+                this.numTellers = input.nextInt();
+            } else {
+                input.next();
+            }
+        } while (this.numTellers > 10 || this.numTellers <= 0);
+        
+        do {
+            System.out.print("Enter chances (0% < & <= 100%) of new customer\t: ");
+            if (input.hasNextInt()) {
+                this.chancesOfArrival = input.nextInt();
+            } else {
+                input.next();
+            }
+        } while (this.chancesOfArrival > 100 || this.chancesOfArrival <= 0);
+        
+        do {
+            System.out.print("Enter maximum transaction time of customers\t: ");
+            if (input.hasNextInt()) {
+                this.maxTransactionTime = input.nextInt();
+            } else {
+                input.next();
+            }
+        } while (this.maxTransactionTime > 500 || this.maxTransactionTime <= 0);
+        
+        do {
+            System.out.print("Enter customer queue limit\t\t\t: ");
+            if (input.hasNextInt()) {
+                this.customerQLimit = input.nextInt();
+            } else {
+                input.next();
+            }
+        } while (this.customerQLimit > 50 || this.customerQLimit <= 0);
+        
+        
         do {
             System.out.print("Enter 0/1 to get data from Random/file\t\t: ");
-            this.dataSource = input.nextInt();
+            if (input.hasNextInt()) {
+                this.dataSource = input.nextInt();
+            } else {
+                input.next();
+            }
         } while (this.dataSource != 0 && this.dataSource != 1);
         
         if (this.dataSource == 1) {
@@ -70,9 +110,12 @@ class BankSimulator {
                 dataFile = new Scanner(new File(input.next()));
             } catch (FileNotFoundException e) {
                 System.out.println("File not found. Using Random data.");
+                this.dataRandom = new Random();
             }
+        } else {
+            this.dataRandom = new Random();
         }
-        this.dataRandom = new Random();
+        
     }
 
     // Refer to step 1 in doSimulation()
