@@ -170,11 +170,12 @@ class BankSimulator {
                 // Step 1.2: check customer waiting queue too long?
                 //           if it is too long, update numGoaway
                 //           else enter customer queue
-                if (servicearea.isCustomerQTooLong()) {
+                if (this.servicearea.isCustomerQTooLong()) {
                     this.numGoaway++;
                     System.out.println("customer #" + newCustomer.getCustomerID() + " leaves because customer queue is full");
                 } else {
                     System.out.println("customer #" + newCustomer.getCustomerID() + " wait in the customer queue");
+                    this.servicearea.insertCustomerQ(newCustomer);
                 }
             } else {
                 System.out.println("\tNo new customer!");
@@ -206,12 +207,12 @@ class BankSimulator {
         
         System.out.println("\n\tTotal waiting time\t: " + this.totalWaitingTime);
         System.out.printf("\tAverage waiting time\t: %.2f\n",
-                (double) this.totalWaitingTime / servicearea.numWaitingCustomers());
+                (double) this.totalWaitingTime / this.servicearea.numWaitingCustomers());
         
         System.out.println("\n\nBusy Tellers Info. :\n\n");
-        if (!servicearea.emptyBusyTellerQ()) {
-            while (!servicearea.emptyBusyTellerQ()) {
-                Teller busyTeller = servicearea.removeBusyTellerQ();
+        if (!this.servicearea.emptyBusyTellerQ()) {
+            while (!this.servicearea.emptyBusyTellerQ()) {
+                Teller busyTeller = this.servicearea.removeBusyTellerQ();
                 busyTeller.setEndBusyTime(this.simulationTime);
                 busyTeller.printStatistics();
             }
@@ -220,9 +221,9 @@ class BankSimulator {
         }
         
         System.out.println("Free Tellers Info. :\n\n");
-        if (!servicearea.emptyFreeTellerQ()) {
-            while (!servicearea.emptyFreeTellerQ()) {
-                Teller freeTeller = servicearea.removeFreeTellerQ();
+        if (!this.servicearea.emptyFreeTellerQ()) {
+            while (!this.servicearea.emptyFreeTellerQ()) {
+                Teller freeTeller = this.servicearea.removeFreeTellerQ();
                 freeTeller.setEndFreeTime(this.simulationTime);
                 freeTeller.printStatistics();
             }
@@ -235,14 +236,14 @@ class BankSimulator {
         this.numGoaway = 0;
         this.numServed = 0;
         this.totalWaitingTime = 0;
-        if (!servicearea.emptyBusyTellerQ()) {
-            servicearea.removeBusyTellerQ();
+        if (!this.servicearea.emptyBusyTellerQ()) {
+            this.servicearea.removeBusyTellerQ();
         }
-        if (!servicearea.emptyFreeTellerQ()) {
-            servicearea.removeFreeTellerQ();
+        if (!this.servicearea.emptyFreeTellerQ()) {
+            this.servicearea.removeFreeTellerQ();
         }
-        if (!servicearea.emptyCustomerQ()) {
-            servicearea.removeCustomerQ();
+        if (!this.servicearea.emptyCustomerQ()) {
+            this.servicearea.removeCustomerQ();
         }
     }
 
