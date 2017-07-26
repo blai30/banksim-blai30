@@ -22,7 +22,7 @@ class Customer
   	customerID       = customerid;
   	transactionTime  = transactiontime;
   	arrivalTime      = arrivaltime;
-        this.finishTime = this.arrivalTime + this.transactionTime;
+        //this.finishTime = this.arrivalTime + this.transactionTime;
     }
 
     int getTransactionTime() 
