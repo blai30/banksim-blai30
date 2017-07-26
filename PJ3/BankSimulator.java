@@ -49,6 +49,7 @@ class BankSimulator {
         Scanner input = new Scanner(System.in);
         System.out.println("\n\t***  Get Simulation Parameters  ***\n");
         
+        // Simulation time
         do {
             System.out.print("Enter simulation time (positive integer)\t: ");
             if (input.hasNextInt()) {
@@ -58,6 +59,7 @@ class BankSimulator {
             }
         } while (this.simulationTime > 10000 || this.simulationTime <= 0);
         
+        // Number of tellers
         do {
             System.out.print("Enter the number of tellers\t\t\t: ");
             if (input.hasNextInt()) {
@@ -67,6 +69,7 @@ class BankSimulator {
             }
         } while (this.numTellers > 10 || this.numTellers <= 0);
         
+        // Chances of new customer
         do {
             System.out.print("Enter chances (0% < & <= 100%) of new customer\t: ");
             if (input.hasNextInt()) {
@@ -76,6 +79,7 @@ class BankSimulator {
             }
         } while (this.chancesOfArrival > 100 || this.chancesOfArrival <= 0);
         
+        // Maximum transaction time of customer
         do {
             System.out.print("Enter maximum transaction time of customers\t: ");
             if (input.hasNextInt()) {
@@ -85,6 +89,7 @@ class BankSimulator {
             }
         } while (this.maxTransactionTime > 500 || this.maxTransactionTime <= 0);
         
+        // Customer queue limit
         do {
             System.out.print("Enter customer queue limit\t\t\t: ");
             if (input.hasNextInt()) {
@@ -94,7 +99,7 @@ class BankSimulator {
             }
         } while (this.customerQLimit > 50 || this.customerQLimit <= 0);
         
-        
+        // Data from Random or file
         do {
             System.out.print("Enter 0/1 to get data from Random/file\t\t: ");
             if (input.hasNextInt()) {
@@ -104,6 +109,7 @@ class BankSimulator {
             }
         } while (this.dataSource != 0 && this.dataSource != 1);
         
+        // Set up data source for Random or file
         if (this.dataSource == 1) {
             System.out.print("Enter filename\t\t\t\t\t: ");
             try {
