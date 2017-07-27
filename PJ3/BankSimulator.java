@@ -261,13 +261,13 @@ class BankSimulator {
         this.numGoaway = 0;
         this.numServed = 0;
         this.totalWaitingTime = 0;
-        if (!this.servicearea.emptyBusyTellerQ()) {
+        while (!this.servicearea.emptyBusyTellerQ()) {
             this.servicearea.removeBusyTellerQ();
         }
-        if (!this.servicearea.emptyFreeTellerQ()) {
+        while (!this.servicearea.emptyFreeTellerQ()) {
             this.servicearea.removeFreeTellerQ();
         }
-        if (!this.servicearea.emptyCustomerQ()) {
+        while (!this.servicearea.emptyCustomerQ()) {
             this.servicearea.removeCustomerQ();
         }
     }
