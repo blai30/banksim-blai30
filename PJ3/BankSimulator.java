@@ -226,8 +226,13 @@ class BankSimulator {
         this.servicearea.printStatistics();
         
         System.out.println("\n\tTotal waiting time\t: " + this.totalWaitingTime);
-        System.out.printf("\tAverage waiting time\t: %.2f\n",
-                (double) this.totalWaitingTime / this.servicearea.numWaitingCustomers());
+        double avgWaitTime;
+        if (this.servicearea.emptyCustomerQ()) {
+            avgWaitTime = 0.00;
+        } else {
+            avgWaitTime = this.totalWaitingTime / this.servicearea.numWaitingCustomers();
+        }
+        System.out.printf("\tAverage waiting time\t: %.2f\n", avgWaitTime);
         
         System.out.println("\n\n\tBusy Tellers Info. :\n\n");
         if (!this.servicearea.emptyBusyTellerQ()) {
