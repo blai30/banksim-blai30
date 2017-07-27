@@ -57,7 +57,7 @@ class BankSimulator {
             } else {
                 input.next();
             }
-        } while (this.simulationTime > 10000 || this.simulationTime <= 0);
+        } while (this.simulationTime > 10000 || this.simulationTime < 0);
         
         // Number of tellers
         do {
@@ -67,7 +67,7 @@ class BankSimulator {
             } else {
                 input.next();
             }
-        } while (this.numTellers > 10 || this.numTellers <= 0);
+        } while (this.numTellers > 10 || this.numTellers < 0);
         
         // Chances of new customer
         do {
@@ -77,7 +77,7 @@ class BankSimulator {
             } else {
                 input.next();
             }
-        } while (this.chancesOfArrival > 100 || this.chancesOfArrival <= 0);
+        } while (this.chancesOfArrival > 100 || this.chancesOfArrival < 0);
         
         // Maximum transaction time of customer
         do {
@@ -87,7 +87,7 @@ class BankSimulator {
             } else {
                 input.next();
             }
-        } while (this.maxTransactionTime > 500 || this.maxTransactionTime <= 0);
+        } while (this.maxTransactionTime > 500 || this.maxTransactionTime < 0);
         
         // Customer queue limit
         do {
@@ -97,7 +97,7 @@ class BankSimulator {
             } else {
                 input.next();
             }
-        } while (this.customerQLimit > 50 || this.customerQLimit <= 0);
+        } while (this.customerQLimit > 50 || this.customerQLimit < 0);
         
         // Data from Random or file
         do {
