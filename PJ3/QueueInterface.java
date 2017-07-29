@@ -32,4 +32,6 @@ public interface QueueInterface<T> {
     
     public void expand();
     
+    public void shiftQueue();
+    
 }

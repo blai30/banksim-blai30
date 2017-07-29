@@ -51,7 +51,14 @@ public class MyQueue<T> implements QueueInterface {
 
     @Override
     public Object poll() {
-        
+        if (this.empty()) {
+            return null;
+        }
+        T data = this.items[0];
+        this.items[0] = null;
+        this.shiftQueue();
+        this.numItems--;
+        return data;
     }
 
     @Override
@@ -90,6 +97,17 @@ public class MyQueue<T> implements QueueInterface {
         T[] expansion = (T[]) new Object[this.currentCap+25];
         System.arraycopy(this.items, 0, expansion, 0, this.numItems);
         this.items = expansion;
+    }
+
+    @Override
+    public void shiftQueue() {
+        if (this.size() > 1) {
+            T t;
+            for (int i = 0; i < numItems; i++) {
+                t = this.items[i+1];
+                this.items[i] = t;
+            }
+        }
     }
     
 }
