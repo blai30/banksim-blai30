@@ -36,12 +36,26 @@ public class MyPriorityQ<T> implements QueueInterface {
 
     @Override
     public T remove() {
-        
+        if (this.empty()) {
+            throw new NoSuchElementException("Nothing to remove");
+        }
+        T data = this.peek();
+        this.items[0] = null;
+        this.shiftQueue();
+        this.numItems--;
+        return data;
     }
 
     @Override
     public T poll() {
-        
+        if (this.empty()) {
+            return null;
+        }
+        T data = this.peek();
+        this.items[0] = null;
+        this.shiftQueue();
+        this.numItems--;
+        return data;
     }
 
     @Override
