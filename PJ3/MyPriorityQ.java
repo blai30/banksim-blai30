@@ -35,6 +35,7 @@ public class MyPriorityQ<T> implements QueueInterface {
             this.expand();
         }
         this.items[this.numItems] = (T) newEntry;
+        this.sort();
         this.numItems++;
         return true;
     }
@@ -52,6 +53,7 @@ public class MyPriorityQ<T> implements QueueInterface {
         T data = this.peek();
         this.items[0] = null;
         this.shiftQueue();
+        this.sort();
         this.numItems--;
         return data;
     }
@@ -64,6 +66,7 @@ public class MyPriorityQ<T> implements QueueInterface {
         T data = this.peek();
         this.items[0] = null;
         this.shiftQueue();
+        this.sort();
         this.numItems--;
         return data;
     }
@@ -128,7 +131,11 @@ public class MyPriorityQ<T> implements QueueInterface {
     
     private void sort() {
         if (this.size() > 1) {
-            
+            for (int i = this.; i < this.numItems; i++) {
+                for (int j = this.peek()+1; j < i; j++) {
+                    
+                }
+            }
         }
     }
     
