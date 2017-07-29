@@ -117,4 +117,12 @@ public class MyPriorityQ<T> implements QueueInterface {
         }
     }
     
+    private void compare(T data1, T data2) {
+        
+    }
+    
+    private void sort() {
+        
+    }
+    
 }
