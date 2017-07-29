@@ -31,7 +31,10 @@ public class MyQueue<T> implements QueueInterface {
     
     @Override
     public boolean add(Object newEntry) {
-        if 
+        if (this.numItems == this.currentCap) {
+            this.expand();
+        }
+        
     }
 
     @Override
@@ -78,6 +81,13 @@ public class MyQueue<T> implements QueueInterface {
         while (!this.empty()) {
             this.poll();
         }
+    }
+
+    @Override
+    public void expand() {
+        T[] expansion = (T[]) new Object[this.currentCap+25];
+        System.arraycopy(this.items, 0, expansion, 0, this.numItems);
+        this.items = expansion;
     }
     
 }
