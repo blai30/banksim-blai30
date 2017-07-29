@@ -31,8 +31,18 @@ public class MyPriorityQ<T> implements QueueInterface {
 
     @Override
     public boolean add(Object newEntry) {
-        
+        if (this.numItems == this.currentCap) {
+            this.expand();
+        }
+        this.items[this.numItems] = (T) newEntry;
+        this.numItems++;
+        return true;
     }
+    
+//    @Override
+//    public boolean offer(Object newEntry) {
+//        
+//    }
 
     @Override
     public T remove() {
