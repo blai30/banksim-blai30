@@ -9,6 +9,17 @@ package PJ3;
  *
  * @author Brian
  */
-public interface QueueInterface {
+public interface QueueInterface<T> {
     
+    public boolean add(T newEntry);
+    
+    public boolean offer(T newEntry);
+    
+    public T remove(T anEntry);
+    
+    public T poll(T anEntry);
+    
+    public T element();
+    
+    public T peek();
 }
