@@ -22,6 +22,8 @@ public class MyQueue<T> implements QueueInterface {
     }
     
     public MyQueue(int cap) {
+        this.items = (T []) new Object[MyQueue.INITIAL_CAP];
+        this.numItems = 0;
         this.currentCap = cap;
     }
     
