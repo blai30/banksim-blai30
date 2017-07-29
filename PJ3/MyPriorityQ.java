@@ -77,12 +77,20 @@ public class MyPriorityQ<T> implements QueueInterface {
 
     @Override
     public void expand() {
-        
+        T[] expansion = (T []) new Object[this.currentCap+25];
+        System.arraycopy(this.items, 0, expansion, 0, this.numItems);
+        this.items = expansion;
     }
 
     @Override
     public void shiftQueue() {
-        
+        if (this.size() > 1) {
+            T t;
+            for (int i = 0; i < this.numItems; i++) {
+                t = this.items[i+1];
+                this.items[i] = t;
+            }
+        }
     }
     
 }
