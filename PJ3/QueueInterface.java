@@ -23,4 +23,11 @@ public interface QueueInterface<T> {
     public T element();
     
     public T peek();
+    
+    public boolean empty();
+    
+    public int size();
+    
+    public void clear();
+    
 }

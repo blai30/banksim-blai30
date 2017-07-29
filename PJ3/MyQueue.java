@@ -29,7 +29,7 @@ public class MyQueue<T> implements QueueInterface {
     
     @Override
     public boolean add(Object newEntry) {
-        
+        if 
     }
 
     @Override
@@ -54,6 +54,21 @@ public class MyQueue<T> implements QueueInterface {
 
     @Override
     public Object peek() {
+        
+    }
+
+    @Override
+    public boolean empty() {
+        
+    }
+
+    @Override
+    public int size() {
+        
+    }
+
+    @Override
+    public void clear() {
         
     }
     
