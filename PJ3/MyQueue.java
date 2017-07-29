@@ -113,11 +113,13 @@ public class MyQueue<T> implements QueueInterface {
     public static void main(String[] args) {
         MyQueue queue = new MyQueue(10);
         for (int i = 0; i < queue.currentCap; i++) {
+            // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
             queue.add(i+1);
         }
         queue.poll();
         queue.poll();
         queue.poll();
+        // [4, 5, 6, 7, 8, 9, 10, null, null, null]
         for (int i = 0; i < queue.currentCap; i++) {
             System.out.println(queue.items[i]);
         }
