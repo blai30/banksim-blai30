@@ -10,8 +10,21 @@ package PJ3;
  * 
  * @author Brian
  */
-public class MyQueue implements QueueInterface {
-
+public class MyQueue<T> implements QueueInterface {
+    
+    private T[] items;
+    private int numItems;
+    private int currentCap;
+    private static int INITIAL_CAP = 25;
+    
+    public MyQueue() {
+        this(INITIAL_CAP);
+    }
+    
+    public MyQueue(int cap) {
+        this.currentCap = cap;
+    }
+    
     @Override
     public boolean add(Object newEntry) {
         
