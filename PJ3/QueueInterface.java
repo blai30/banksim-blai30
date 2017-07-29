@@ -14,9 +14,9 @@ public interface QueueInterface<T> {
     
     public boolean add(T newEntry);
     
-    public boolean offer(T newEntry);
+//    public boolean offer(T newEntry);
     
-    public T remove();
+//    public T remove();
     
     public T poll();
     

@@ -34,18 +34,20 @@ public class MyQueue<T> implements QueueInterface {
         if (this.numItems == this.currentCap) {
             this.expand();
         }
-        
+        this.items[this.numItems] = (T) newEntry;
+        this.numItems++;
+        return true;
     }
 
-    @Override
-    public boolean offer(Object newEntry) {
-        
-    }
+//    @Override
+//    public boolean offer(Object newEntry) {
+//        
+//    }
 
-    @Override
-    public Object remove() {
-        
-    }
+//    @Override
+//    public Object remove() {
+//        
+//    }
 
     @Override
     public Object poll() {
