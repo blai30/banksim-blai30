@@ -10,5 +10,35 @@ package PJ3;
  * @author Brian
  */
 public class MyQueue implements QueueInterface {
+
+    @Override
+    public boolean add(Object newEntry) {
+        
+    }
+
+    @Override
+    public boolean offer(Object newEntry) {
+        
+    }
+
+    @Override
+    public Object remove(Object anEntry) {
+        
+    }
+
+    @Override
+    public Object poll(Object anEntry) {
+        
+    }
+
+    @Override
+    public Object element() {
+        
+    }
+
+    @Override
+    public Object peek() {
+        
+    }
     
 }
