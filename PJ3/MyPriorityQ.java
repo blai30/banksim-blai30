@@ -117,12 +117,19 @@ public class MyPriorityQ<T> implements QueueInterface {
         }
     }
     
-    private void compare(T data1, T data2) {
-        
+    private int compare(int data1, int data2) {
+        if (data1 > data2) {
+            return 1;
+        } else if (data1 < data2) {
+            return -1;
+        }
+        return 0;
     }
     
     private void sort() {
-        
+        if (this.size() > 1) {
+            
+        }
     }
     
 }
