@@ -44,10 +44,17 @@ public class MyQueue<T> implements QueueInterface {
 //        
 //    }
 
-//    @Override
-//    public Object remove() {
-//        
-//    }
+    @Override
+    public Object remove() {
+        if (this.empty()) {
+            throw new NoSuchElementException("Nothing to remove");
+        }
+        T data = this.items[0];
+        this.items[0] = null;
+        this.shiftQueue();
+        this.numItems--;
+        return data;
+    }
 
     @Override
     public Object poll() {

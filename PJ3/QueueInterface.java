@@ -16,7 +16,7 @@ public interface QueueInterface<T> {
     
 //    public boolean offer(T newEntry);
     
-//    public T remove();
+    public T remove();
     
     public T poll();
     
