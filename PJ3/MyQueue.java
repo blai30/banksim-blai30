@@ -5,7 +5,7 @@
  */
 package PJ3;
 
-import java.util.*;
+import java.util.NoSuchElementException;
 
 /**
  * Taken from https://docs.oracle.com/javase/7/docs/api/java/util/Queue.html
