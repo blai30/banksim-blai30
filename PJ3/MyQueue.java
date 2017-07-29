@@ -38,12 +38,12 @@ public class MyQueue<T> implements QueueInterface {
     }
 
     @Override
-    public Object remove(Object anEntry) {
+    public Object remove() {
         
     }
 
     @Override
-    public Object poll(Object anEntry) {
+    public Object poll() {
         
     }
 
@@ -69,7 +69,9 @@ public class MyQueue<T> implements QueueInterface {
 
     @Override
     public void clear() {
-        
+        while (!this.empty()) {
+            this.poll();
+        }
     }
     
 }
