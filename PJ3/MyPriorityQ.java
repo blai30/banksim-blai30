@@ -46,27 +46,33 @@ public class MyPriorityQ<T> implements QueueInterface {
 
     @Override
     public Object element() {
-        
+        try {
+            return this.items[0];
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("Does not exist");
+        }
     }
 
     @Override
     public Object peek() {
-        
+        return this.items[0];
     }
 
     @Override
     public boolean empty() {
-        
+        return this.numItems == 0;
     }
 
     @Override
     public int size() {
-        
+        return this.numItems;
     }
 
     @Override
     public void clear() {
-        
+        while (!this.empty()) {
+            this.poll();
+        }
     }
 
     @Override
