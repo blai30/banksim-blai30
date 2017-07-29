@@ -35,17 +35,17 @@ public class MyPriorityQ<T> implements QueueInterface {
     }
 
     @Override
-    public Object remove() {
+    public T remove() {
         
     }
 
     @Override
-    public Object poll() {
+    public T poll() {
         
     }
 
     @Override
-    public Object element() {
+    public T element() {
         try {
             return this.items[0];
         } catch (NoSuchElementException e) {
@@ -54,7 +54,7 @@ public class MyPriorityQ<T> implements QueueInterface {
     }
 
     @Override
-    public Object peek() {
+    public T peek() {
         return this.items[0];
     }
 
