@@ -45,7 +45,7 @@ public class MyQueue<T> implements QueueInterface {
 //    }
 
     @Override
-    public Object remove() {
+    public T remove() {
         if (this.empty()) {
             throw new NoSuchElementException("Nothing to remove");
         }
@@ -57,7 +57,7 @@ public class MyQueue<T> implements QueueInterface {
     }
 
     @Override
-    public Object poll() {
+    public T poll() {
         if (this.empty()) {
             return null;
         }
@@ -69,7 +69,7 @@ public class MyQueue<T> implements QueueInterface {
     }
 
     @Override
-    public Object element() {
+    public T element() {
         try {
             return this.items[0];
         } catch (NoSuchElementException e) {
@@ -78,7 +78,7 @@ public class MyQueue<T> implements QueueInterface {
     }
 
     @Override
-    public Object peek() {
+    public T peek() {
         return this.items[0];
     }
 
