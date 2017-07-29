@@ -6,7 +6,8 @@
 package PJ3;
 
 /**
- *
+ * Taken from https://docs.oracle.com/javase/7/docs/api/java/util/Queue.html
+ * 
  * @author Brian
  */
 public interface QueueInterface<T> {
