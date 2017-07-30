@@ -239,6 +239,7 @@ class BankSimulator {
             while (!this.servicearea.emptyBusyTellerQ()) {
                 Teller busyTeller = this.servicearea.removeBusyTellerQ();
                 busyTeller.setEndBusyTime(this.simulationTime);
+                busyTeller.updateTotalBusyTime();
                 busyTeller.printStatistics();
             }
         } else {
@@ -250,6 +251,7 @@ class BankSimulator {
             while (!this.servicearea.emptyFreeTellerQ()) {
                 Teller freeTeller = this.servicearea.removeFreeTellerQ();
                 freeTeller.setEndFreeTime(this.simulationTime);
+                freeTeller.updateTotalFreeTime();
                 freeTeller.printStatistics();
             }
         } else {
