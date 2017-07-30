@@ -199,6 +199,11 @@ class BankSimulator {
                 System.out.println("\tcustomer #" + freeToBusy.getCustomer().getCustomerID() + " gets a teller");
                 System.out.println("\tteller #" + freeToBusy.getTellerID() + " starts serving customer #" + freeToBusy.getCustomer().getCustomerID() + " for " + freeToBusy.getCustomer().getTransactionTime() + " units");
             }
+            
+            // Calculating total waiting time
+            for (int i = 0; i < this.servicearea.numWaitingCustomers(); i++) {
+                this.totalWaitingTime++;
+            }
         } // end simulation loop
 
         // clean-up - close scanner
