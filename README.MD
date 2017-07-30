@@ -2,6 +2,9 @@
 
 - Student ID: 916818167
 
+Custom Queue and Priority Queue classes are not being used.
+Did not finish extra credit.
+
 DUE DATE: Saturday, 7/29/2017 @ midnight
 
 

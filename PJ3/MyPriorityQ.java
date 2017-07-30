@@ -131,11 +131,11 @@ public class MyPriorityQ<T> implements QueueInterface {
     
     private void sort() {
         if (this.size() > 1) {
-            for (int i = this.; i < this.numItems; i++) {
-                for (int j = this.peek()+1; j < i; j++) {
-                    
-                }
-            }
+//            for (int i = this.; i < this.numItems; i++) {
+//                for (int j = this.peek()+1; j < i; j++) {
+//                    
+//                }
+//            }
         }
     }
     
